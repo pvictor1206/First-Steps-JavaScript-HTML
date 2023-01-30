@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+      <title>Calculadora de IMC</title>
+      <meta charset="UTF-8">
+      <!-- Mobile Adaptation -->
+      <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+    <header>
+      
+    </header>
+    
+    <main>
+      <h1>Calculadora IMC</h1>
+      <script>
+        function pulaLinha(){
+          document.write("<br>");
+          document.write("<br>");
+        }
+        
+        function mostra(frase){
+          document.write(frase);
+          pulaLinha();
+        }
+        
+        function imcCalculate(massa,altura){
+          return massa / (altura*altura);
+        }
+        
+          var nomeUser = prompt("Informe seu nome: ")
+          var massaUser = prompt("Informe qual o seu peso em Kg (Ex: 70 Kg): ");
+          var alturaUser = prompt("Informe qual a sua altura em metros (Ex: 1.80 m): ");
+          var imcResult = imcCalculate(massaUser,alturaUser)
+          mostra(nomeUser + ", o seu IMC é: " + Math.round((imcResult + Number.EPSILON) * 100) / 100);
+        
+          if(imcResult < 18.5){
+            mostra("Magreza - Abaixo do recomendado");
+          }
+          if(18.5 < imcResult && imcResult < 24.9){
+           mostra("Ideal - Dentro do recomendado"); 
+          }
+          if(24.9 < imcResult && imcResult < 30){
+           mostra("Sobrepeso - Um pouco acima do recomendado"); 
+          }
+          if(imcResult > 30) {
+            mostra("Obesidade - Muito acima do recomendado"); 
+          }
+          
+      </script>
+    </main>
+    
+    <footer>
+      
+    </footer>
+    
+  </body>
+</html>

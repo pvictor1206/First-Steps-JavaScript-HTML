@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+      <title>Jogo de Advinhação</title>
+      <meta charset="UTF-8">
+      <!-- Mobile Adaptation -->
+      <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+    <header>
+      
+    </header>
+    
+    <main>
+      <h1>Jogo de Advinhação</h1>
+      <script>
+          function pulaLinha(){
+          document.write("<br>");
+          document.write("<br>");
+          }
+
+          function mostra(frase){
+            document.write(frase);
+            pulaLinha();
+          }
+
+          function sorteia(n){
+            return Math.round(Math.random()*n);
+          }
+
+          var n = parseInt(prompt("Até que número deseja sortear?"))
+
+          var numPensado = sorteia(n);
+          
+          alert("Vc terá 3 tentativas para acertar o número pensado!")
+          for(var tentativas = 1; tentativas<=3; tentativas++){
+            var chute = parseInt(prompt("Digite seu chute: "));
+            if(chute != numPensado){
+              alert("Você errou ! 🙁");
+              if(chute > numPensado){
+                alert("O número que vc chutou é maior que o número pensado");
+              }else{
+                alert("O número que vc chutou é menor que o número pensado");
+              }
+
+              if(tentativas==3){
+                mostra("Acabaram suas tentativas 🙁!")
+                mostra("O número pensado foi " +numPensado);
+                break;
+              }
+            }else{
+              mostra("Você acertou ! 🙂");
+              mostra("O número pensado foi " +numPensado);
+              break;
+            }
+          }
+          
+        
+      </script>
+    </main>
+    
+    <footer>
+      
+    </footer>
+  </body>
+</html>
